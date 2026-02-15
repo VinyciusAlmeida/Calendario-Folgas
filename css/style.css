@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.painel-grupos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.grupo-card {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.card-consulta input,
+.card-consulta button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.card-consulta button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card-consulta button:active {
+    transform: scale(0.98);
+}
+
+.folga-hoje {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+    transform: scale(1.05);
+}
+
+.calendario-container {
+    margin-top: 30px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.calendario-container h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.calendario-grade {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.dia {
+    aspect-ratio: 1/ 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.dia-folga {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #1e7e34;
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+}
+
+.dia-hoje {
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+@media (max-width: 350px) {
+    .painel-grupos {
+    grid-template-columns: 1fr;
+    }
+    .dia {
+        font-size: 0.7rem;
+    }
+}

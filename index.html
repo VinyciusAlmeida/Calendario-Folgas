@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calendário de Folgas</title>
+</head>
+<body>
+    <main>
+        <div class="app-container">
+            <h1>Escala de Folgas 6x2</h1>
+
+            <div class="card-consulta">
+                <input type="date" id="dataInput">
+                <button id="btnVerificar">Verificar Dia</button>
+            </div>
+
+            <div class="painel-grupos">
+                <div class="grupo-card" id="grupo-1">
+                    <h3>Grupo 1</h3>
+                    <p class="status">Trabalhando</p>
+                </div>
+                <div class="grupo-card" id="grupo-2">
+                    <h3>Grupo 2</h3>
+                    <p class="status">Trabalhando</p>
+                </div>
+                <div class="grupo-card" id="grupo-3">
+                    <h3>Grupo 3</h3>
+                    <p class="status">Trabalhando</p>
+                </div>
+                <div class="grupo-card" id="grupo-4">
+                    <h3>Grupo 4</h3>
+                    <p class="status">Trabalhando</p>
+                </div>
+            </div>
+            
+            <div class="calendario-container">
+                <h2 id="mesAtual">Fevereiro 2026</h2>
+                <div class="calendario-grade" id="calendarioGrade"></div>
+            </div>
+        </div>
+    </main>
+    <script src="js/calculadora.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
