@@ -65,3 +65,9 @@ document.querySelectorAll('.grupo-card').forEach(card => {
 });
 
 window.onload = () => gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then(() => console.log("Modo Offline Ativado!"))
+    .catch(err => console.log("Erro no Offline:", err));
+}
