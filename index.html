@@ -10,12 +10,6 @@
     <main>
         <div class="app-container">
             <h1>Escala de Folgas 6x2</h1>
-
-            <div class="card-consulta">
-                <input type="date" id="dataInput">
-                <button id="btnVerificar">Verificar Dia</button>
-            </div>
-
             <div class="painel-grupos">
                 <div class="grupo-card" id="grupo-1">
                     <h3>Grupo 1</h3>
@@ -36,10 +30,13 @@
             </div>
             
             <div class="calendario-container">
-                <h2 id="mesAtual">Fevereiro 2026</h2>
+                <div class="calendario-header">
+                    <button id="btnAnterior">&lt;</button>
+                    <h2 id="mesAtual">Fevereiro 2026</h2>
+                    <button id="btnProximo">&gt;</button>
+                </div>
                 <div class="calendario-grade" id="calendarioGrade"></div>
             </div>
-        </div>
     </main>
     <script src="js/calculadora.js"></script>
     <script src="js/main.js"></script>

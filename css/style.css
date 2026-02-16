@@ -40,34 +40,27 @@ h1 {
     border: 2px solid transparent;
 }
 
-.card-consulta input,
-.card-consulta button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-}
-
-.card-consulta button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.card-consulta button:active {
-    transform: scale(0.98);
-}
-
 .folga-hoje {
     background-color: #d4edda;
     border-color: #28a745;
     color: #155724;
     transform: scale(1.05);
+}
+
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendario-header button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .calendario-container {
@@ -114,6 +107,14 @@ h1 {
 .dia-hoje {
     border: 2px solid #007bff;
     color: #007bff;
+}
+
+.dia-feriado {
+    background-color: #ff4d4d !important;
+    color: white !important;
+    border-color: #cc0000;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.2);
 }
 
 @media (max-width: 350px) {
