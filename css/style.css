@@ -8,18 +8,19 @@ body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     background-color: #f8f9fa;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
     padding: 20px;
-    height: auto;
-    overflow-x: auto;
-    padding-bottom: 40px;
+    margin: 0;
 }
 
 .app-container {
     width: 100%;
     max-width: 400px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -130,12 +131,11 @@ h1 {
 }
 
 .rodape {
-    margin-top: 40px; /* Dá um espaço depois do calendário */
-    padding-bottom: 20px 0;
-    color: #888;
-    font-size: 0.8rem;
-    border-top: 1px solid #ddd; /* Uma linhazinha sutil para separar */
+    width: 100%;
     text-align: center;
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
 }
 
 .rodape strong {
