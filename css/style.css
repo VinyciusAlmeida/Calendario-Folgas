@@ -11,6 +11,9 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
+    height: auto;
+    overflow-x: auto;
+    padding-bottom: 40px;
 }
 
 .app-container {
@@ -127,13 +130,12 @@ h1 {
 }
 
 .rodape {
-    margin-top: 40px;
-    padding: 20px 0;
-    width: 100%;
+    margin-top: 40px; /* Dá um espaço depois do calendário */
+    padding-bottom: 20px 0;
+    color: #888;
+    font-size: 0.8rem;
+    border-top: 1px solid #ddd; /* Uma linhazinha sutil para separar */
     text-align: center;
-    border-top: 1px solid #ddd;
-    color: #666;
-    font-size: 0.9rem;
 }
 
 .rodape strong {
