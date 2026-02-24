@@ -1,4 +1,4 @@
-const CACHE_NAME = 'folgas-v2';
+const CACHE_NAME = 'folgas-v2.3';
 const ASSETS = [
   './',
   './index.html',
@@ -13,4 +13,19 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
   e.respondWith(caches.match(e.request).then(response => response || fetch(e.request)));
+});
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cache) => {
+                    if (cache !== CACHE_NAME) {
+                        console.log('Removendo cache antigo...');
+                        return caches.delete(cache);
+                    }
+                })
+            );
+        })
+    );
 });
