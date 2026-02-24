@@ -1,21 +1,18 @@
-const CACHE_NAME = 'folgas-v2.5';
+const CACHE_NAME = 'folgas-v2.6';
 const ASSETS = [
   './',
   './index.html',
-  './css/style.css',
   './js/main.js',
   './js/calculadora.js',
   './manifest.json',
   './assets/icons/favicon.svg'
 ];
-
 self.addEventListener('install', (e) => {
   self.skipWaiting(); 
   e.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
   );
 });
-
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -29,7 +26,6 @@ self.addEventListener('activate', (event) => {
     }).then(() => self.clients.claim())
   );
 });
-
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(event.request).catch(() => {
