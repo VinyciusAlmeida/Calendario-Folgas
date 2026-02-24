@@ -2,46 +2,45 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css?v=2.3">
+    <link rel="stylesheet" href="css/style.css?v=2.4">
     <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
-    <link rel="manifest" href="manifest.json">
-    <title>Calendário de Folgas</title>
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <title>Calendário de Folgas - Produção</title>
+    <meta name="description" content="Calendário de escala 6x2 para 2026. Consulte suas folgas e feriados de forma rápida e offline.">
+    <meta name="theme-color" content="#007bff">
 </head>
 <body>
     <div class="app-container">
         <main>
-            <h1>Calendario de Folgas <br>Produção</h1>
+            <h1>Calendário de Folgas <br>Produção</h1>
             
-            <div class="painel-grupos">
-                <div class="grupo-card" id="grupo-1">
+            <section class="painel-grupos" aria-label="Seleção de Grupos">
+                <div class="grupo-card" id="grupo-1" role="button" aria-pressed="false" tabindex="0">
                     <h3>Grupo 1</h3>
-                    <!-- <p class="status"></p> -->
                 </div>
-                <div class="grupo-card" id="grupo-2">
+                <div class="grupo-card" id="grupo-2" role="button" aria-pressed="false" tabindex="0">
                     <h3>Grupo 2</h3>
-                    <!-- <p class="status"></p> -->
                 </div>
-                <div class="grupo-card" id="grupo-3">
+                <div class="grupo-card" id="grupo-3" role="button" aria-pressed="false" tabindex="0">
                     <h3>Grupo 3</h3>
-                    <!-- <p class="status"></p> -->
                 </div>
-                <div class="grupo-card" id="grupo-4">
+                <div class="grupo-card" id="grupo-4" role="button" aria-pressed="false" tabindex="0">
                     <h3>Grupo 4</h3>
-                    <!-- <p class="status"></p> -->
                 </div>
-            </div>
+            </section>
             
-            <div class="calendario-container">
+            <section class="calendario-container" aria-label="Calendário Mensal">
                 <div class="calendario-header">
-                    <button id="btnAnterior">&lt;</button>
+                    <button id="btnAnterior" aria-label="Mês Anterior">&lt;</button>
                     <h2 id="mesAtual">Fevereiro 2026</h2>
-                    <button id="btnProximo">&gt;</button>
+                    <button id="btnProximo" aria-label="Próximo Mês">&gt;</button>
                 </div>
                 <div class="calendario-grade" id="calendarioGrade"></div>
-            </div>
+            </section>
             
-            <div id="toastAlerta" class="toast-aviso">
+            <div id="toastAlerta" class="toast-aviso" role="alert" aria-live="polite">
                 <span id="toastMensagem"></span>
             </div>
         </main>
@@ -51,7 +50,7 @@
         </footer>
     </div>
 
-    <script src="js/calculadora.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/calculadora.js?v=2.4" defer></script>
+    <script src="js/main.js?v=2.4" defer></script>
 </body>
 </html>
