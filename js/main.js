@@ -66,7 +66,7 @@ document.getElementById('btnProximo').addEventListener('click', () => {
         }
         gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
     } else {
-        mostrarAlerta("Aviso", "Não é possível avançar para meses posteriores a Dezembro de 2026!");
+        mostrarAlerta("", "Não é possível avançar para meses posteriores a Dezembro de 2026!");
     }
 });
 
@@ -79,18 +79,20 @@ document.getElementById('btnAnterior').addEventListener('click', () => {
         }
         gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
     } else {
-        mostrarAlerta("Aviso", "Não é possível voltar para meses anteriores a Janeiro de 2026!");
+        mostrarAlerta("", "Não é possível voltar para meses anteriores a Janeiro de 2026!");
     }
 });
 
 function mostrarAlerta(titulo, mensagem) {
-    document.getElementById('modalTitulo').textContent = titulo;
-    document.getElementById('modalMensagem').textContent = mensagem;
-    document.getElementById('modalAlerta').style.display = 'flex';
-}
+    const toast = document.getElementById('toastAlerta');
+    const msgSpan = document.getElementById('toastMensagem');
 
-function fecharModal() {
-    document.getElementById('modalAlerta').style.display = 'none';
+    msgSpan.textContent = mensagem;
+    toast.classList.add('show');
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000)
 }
 
 document.querySelectorAll('.grupo-card').forEach(card => {
