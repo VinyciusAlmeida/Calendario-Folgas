@@ -1,7 +1,6 @@
-
-let mesExibido = 1;
+let mesExibido = 0;
 let anoExibido = 2026;
-let grupoSelecionado = "Grupo 4";
+let grupoSelecionado = null;
 
 function gerarCalendario(grupoParaDestacar, mes, ano) {
     const grade = document.getElementById('calendarioGrade');
@@ -13,6 +12,22 @@ function gerarCalendario(grupoParaDestacar, mes, ano) {
                         "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
     
     tituloMes.textContent = `${mesesNomes[mes]} ${ano}`;
+
+    const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+    diasSemana.forEach(diaNome => {
+        const divSemana = document.createElement('div');
+        divSemana.classList.add('dia-semana');
+        divSemana.textContent = diaNome;
+        grade.appendChild(divSemana);
+    });
+
+    const primeiroDiaDoMes = new Date(ano, mes, 1).getDay();
+
+    for (let x = 0; x < primeiroDiaDoMes; x++) {
+        const divVazia = document.createElement('div');
+        divVazia.classList.add('dia-vazio');
+        grade.appendChild(divVazia);
+    }
 
     const ultimoDiaDoMes = new Date(ano, mes + 1, 0).getDate();
 
@@ -28,8 +43,14 @@ function gerarCalendario(grupoParaDestacar, mes, ano) {
 
         if (ehFeriadoGeral(dataFormatada)) {
             divDia.classList.add('dia-feriado');
-        } else if (quemFolga === grupoParaDestacar) {
-            divDia.classList.add('dia-folga');
+        }
+
+        if (grupoParaDestacar !== null) {
+            if (ehFeriadoGeral(dataFormatada)) {
+                divDia.classList.add('dia-feriado');
+            } else if (quemFolga === grupoParaDestacar) {
+                divDia.classList.add('dia-folga');
+            }
         }
 
         grade.appendChild(divDia);
@@ -37,30 +58,49 @@ function gerarCalendario(grupoParaDestacar, mes, ano) {
 }
 
 document.getElementById('btnProximo').addEventListener('click', () => {
-    mesExibido++;
-    if (mesExibido > 11) {
-        mesExibido = 0;
-        anoExibido++;
+    if (anoExibido < 2026 || (anoExibido === 2026 && mesExibido < 11)) {
+        mesExibido++;
+        if (mesExibido > 11) {
+            mesExibido = 0;
+            anoExibido++;
+        }
+        gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
+    } else {
+        mostrarAlerta("Aviso", "Não é possível avançar para meses posteriores a Dezembro de 2026!");
     }
-    gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
 });
 
 document.getElementById('btnAnterior').addEventListener('click', () => {
-    mesExibido--;
-    if (mesExibido < 0) {
-        mesExibido = 11;
-        anoExibido--;
+    if (anoExibido > 2026 || (anoExibido === 2026 && mesExibido > 0)) {
+        mesExibido--;
+        if (mesExibido < 0) {
+            mesExibido = 11;
+            anoExibido--;
+        }
+        gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
+    } else {
+        mostrarAlerta("Aviso", "Não é possível voltar para meses anteriores a Janeiro de 2026!");
     }
-    gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
 });
+
+function mostrarAlerta(titulo, mensagem) {
+    document.getElementById('modalTitulo').textContent = titulo;
+    document.getElementById('modalMensagem').textContent = mensagem;
+    document.getElementById('modalAlerta').style.display = 'flex';
+}
+
+function fecharModal() {
+    document.getElementById('modalAlerta').style.display = 'none';
+}
 
 document.querySelectorAll('.grupo-card').forEach(card => {
     card.addEventListener('click', () => {
         grupoSelecionado = card.querySelector('h3').textContent;
-        gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
         
-        document.querySelectorAll('.grupo-card').forEach(c => c.classList.remove('folga-hoje'));
-        card.classList.add('folga-hoje');
+        document.querySelectorAll('.grupo-card').forEach(c => c.classList.remove('ativo'));
+        card.classList.add('ativo');
+        
+        gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
     });
 });
 
