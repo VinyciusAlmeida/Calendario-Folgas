@@ -235,12 +235,102 @@
     }
     .painel-grupos {
     display: grid;
-    /* Otimização: se tiver 2 itens, ficam lado a lado. Se tiver 4, faz 2x2 */
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 12px;
     margin-bottom: 25px;
     width: 100%;
-}
+    }
+    .feriados-container {
+        margin: 20px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        border: 1px solid #e0e0e0;
+        max-width: 95%;
+    }
+
+    .feriados-header {
+        background: #f8f9fa;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .feriados-header h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .tabela-scroll {
+        overflow-x: hidden; 
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    th {
+        background-color: #ffffff;
+        color: #666;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+        padding: 12px 10px;
+        text-align: left;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    th:nth-child(1), td:nth-child(1) { width: 25%; }
+    th:nth-child(2), td:nth-child(2) { width: 45%; }
+    th:nth-child(3), td:nth-child(3) { width: 30%; }
+
+    td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+        color: #444;
+        border-bottom: 1px solid #f9f9f9;
+        word-wrap: break-word;
+    }
+
+    tr:hover td {
+        background-color: #fcfcfc;
+    }
+
+    .tag-setor {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-align: center;
+        width: 100%;
+    }
+
+    .tag-setor.geral {
+        background-color: #e3f2fd;
+        color: #1565c0;
+        border: 1px solid #bbdefb;
+    }
+
+    .tag-setor.especifico {
+        background-color: #f3e5f5;
+        color: #7b1fa2;
+        border: 1px solid #e1bee7;
+    }
+
+    td strong {
+        color: #2c3e50;
+        font-family: 'Courier New', Courier, monospace;
+    }
     </style>
 </head>
 <body>
@@ -267,6 +357,24 @@
             <div id="toastAlerta" class="toast-aviso" role="alert" aria-live="polite">
                 <span id="toastMensagem"></span>
             </div>
+
+            <div class="feriados-container">
+            <div class="feriados-header">
+                <h3>📌 Legenda de Feriados </h3>
+            </div>
+                <div class="tabela-scroll">
+                    <table id="tabelaFeriados">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Feriado</th>
+                                <th>Abrangência</th>
+                            </tr>
+                        </thead>
+                    <tbody id="corpoTabelaFeriados"></tbody>
+                    </table>
+                </div>
+            </div>
         </main>
 
         <footer class="rodape">
@@ -274,7 +382,8 @@
         </footer>
     </div>
 
-    <script src="js/calculadora.js?v=2.8" defer></script>
-    <script src="js/main.js?v=2.8" defer></script>
+    <script src="js/calculadora.js?v=2.9" defer></script>
+    <script src="js/feriados.js?v=2.9" defer></script>
+    <script src="js/main.js?v=2.9" defer></script>
 </body>
 </html>
