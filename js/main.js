@@ -80,6 +80,7 @@ function gerarCalendario(grupoParaDestacar, mes, ano) {
 
         grade.appendChild(divDia);
     }
+    renderizarTabelaFeriados(mes);
 }
 
 function renderizarBotoesGrupo(setor) {
@@ -138,6 +139,20 @@ document.getElementById('btnAnterior').onclick = () => {
         anoExibido--; }
     gerarCalendario(grupoSelecionado, mesExibido, anoExibido);
 };
+
+function mostrarAlerta(mensagem) {
+    const toast = document.getElementById("toastAlerta");
+    const spanMensagem = document.getElementById("toastMensagem");
+
+    if (toast && spanMensagem) {
+        spanMensagem.textContent = mensagem;
+        toast.classList.add("show");
+        
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
+}
 
 window.onload = () => {
     renderizarBotoesGrupo('producao');
