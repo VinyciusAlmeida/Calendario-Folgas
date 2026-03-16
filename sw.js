@@ -1,4 +1,4 @@
-const CACHE_NAME = 'folgas-v2.7';
+const CACHE_NAME = 'folgas-v2.8';
 const ASSETS = [
   './',
   './index.html',

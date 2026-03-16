@@ -1,5 +1,5 @@
 const DATA_BASE_PROD = new Date('2026-01-08T00:00:00').getTime();
-const DATA_BASE_MANUT = new Date('2026-01-04T00:00:00').getTime(); 
+const DATA_BASE_MANUT = new Date('2026-01-01T00:00:00').getTime(); 
 const DATA_BASE_ELETRICA = new Date('2026-01-01T00:00:00').getTime();
 
 const FERIADOS_PROD = [
@@ -45,13 +45,11 @@ function verificarFolgaManutencao(dataEscolhida, grupo) {
     const semanasDesdeBase = Math.floor((dataTS - DATA_BASE_MANUT) / (86400000 * 7));
     const isSemanaA = semanasDesdeBase % 2 === 0;
     if (grupo === "D1") {
-        if (diaSemana === 0) return true; 
-        if (isSemanaA && diaSemana === 6) return true; 
-        if (!isSemanaA && diaSemana === 1) return true; 
+        if (diaSemana === 0) return true;
+        if (isSemanaA && diaSemana === 6) return true;
     } else if (grupo === "D2") {
         if (diaSemana === 0) return true;
-        if (!isSemanaA && diaSemana === 6) return true; 
-        if (isSemanaA && diaSemana === 1) return true; 
+        if (!isSemanaA && diaSemana === 6) return true;
     }
     return false;
 }
