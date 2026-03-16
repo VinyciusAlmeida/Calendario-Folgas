@@ -331,6 +331,42 @@
         color: #2c3e50;
         font-family: 'Courier New', Courier, monospace;
     }
+
+    .legenda-cores {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+    padding: 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    }
+
+    .legenda-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text);
+    }
+
+    .circulo {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    .circulo.feriado {
+        background-color: var(--danger);
+        box-shadow: 0 0 5px rgba(231, 76, 60, 0.4);
+    }
+
+    .circulo.folga {
+        background-color: var(--success);
+        box-shadow: 0 0 5px rgba(46, 204, 113, 0.4);
+    }
     </style>
 </head>
 <body>
@@ -344,6 +380,17 @@
             <h1>Calendário de Folgas <span id="setorNome"><br>Produção</span></h1>
             
             <section class="painel-grupos" id="containerGrupos" aria-label="Seleção de Grupos"></section>
+
+            <div class="legenda-cores">
+                <div class="legenda-item">
+                    <span class="circulo feriado"></span>
+                    <span>Feriados</span>
+                </div>
+                <div class="legenda-item">
+                    <span class="circulo folga"></span>
+                    <span>Folgas</span>
+                </div>
+            </div>
             
             <section class="calendario-container" aria-label="Calendário Mensal">
                 <div class="calendario-header">
@@ -382,8 +429,8 @@
         </footer>
     </div>
 
-    <script src="js/calculadora.js?v=2.9" defer></script>
-    <script src="js/feriados.js?v=2.9" defer></script>
-    <script src="js/main.js?v=2.9" defer></script>
+    <script src="js/calculadora.js?v=2.9.1" defer></script>
+    <script src="js/feriados.js?v=2.9.1" defer></script>
+    <script src="js/main.js?v=2.9.1" defer></script>
 </body>
 </html>
