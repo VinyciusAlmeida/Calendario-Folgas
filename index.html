@@ -203,27 +203,57 @@
     .toast-aviso.show {
         bottom: 30px;
     }
+
+    .navbar-areas {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    background: #e9ecef;
+    padding: 5px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    }
+
+    .nav-btn {
+        flex: 1;
+        padding: 10px 5px;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        color: #666;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .nav-btn.ativo {
+        background: var(--card-bg);
+        color: var(--primary);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .painel-grupos {
+    display: grid;
+    /* Otimização: se tiver 2 itens, ficam lado a lado. Se tiver 4, faz 2x2 */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 25px;
+    width: 100%;
+}
     </style>
 </head>
 <body>
     <div class="app-container">
         <main>
-            <h1>Calendário de Folgas <br>Produção</h1>
+            <nav class="navbar-areas">
+                <button class="nav-btn ativo" data-area="producao">Produção</button>
+                <button class="nav-btn" data-area="manutencao">Manutenção</button>
+                <button class="nav-btn" data-area="eletrica">Elétrica</button>
+            </nav>
+            <h1>Calendário de Folgas <span id="setorNome"><br>Produção</span></h1>
             
-            <section class="painel-grupos" aria-label="Seleção de Grupos">
-                <div class="grupo-card" id="grupo-1" role="button" aria-pressed="false" tabindex="0">
-                    <h3>Grupo 1</h3>
-                </div>
-                <div class="grupo-card" id="grupo-2" role="button" aria-pressed="false" tabindex="0">
-                    <h3>Grupo 2</h3>
-                </div>
-                <div class="grupo-card" id="grupo-3" role="button" aria-pressed="false" tabindex="0">
-                    <h3>Grupo 3</h3>
-                </div>
-                <div class="grupo-card" id="grupo-4" role="button" aria-pressed="false" tabindex="0">
-                    <h3>Grupo 4</h3>
-                </div>
-            </section>
+            <section class="painel-grupos" id="containerGrupos" aria-label="Seleção de Grupos"></section>
             
             <section class="calendario-container" aria-label="Calendário Mensal">
                 <div class="calendario-header">
@@ -244,7 +274,7 @@
         </footer>
     </div>
 
-    <script src="js/calculadora.js?v=2.6" defer></script>
-    <script src="js/main.js?v=2.6" defer></script>
+    <script src="js/calculadora.js?v=2.7" defer></script>
+    <script src="js/main.js?v=2.7" defer></script>
 </body>
 </html>
