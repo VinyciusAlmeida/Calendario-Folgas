@@ -44,10 +44,10 @@ function verificarFolgaManutencao(dataEscolhida, grupo) {
     if (FERIADOS_MANUT_TS.includes(dataTS)) return true;
     const semanasDesdeBase = Math.floor((dataTS - DATA_BASE_MANUT) / (86400000 * 7));
     const isSemanaA = semanasDesdeBase % 2 === 0;
-    if (grupo === "D1") {
+    if (grupo === "D2") {
         if (diaSemana === 0) return true;
         if (isSemanaA && diaSemana === 6) return true;
-    } else if (grupo === "D2") {
+    } else if (grupo === "D1") {
         if (diaSemana === 0) return true;
         if (!isSemanaA && diaSemana === 6) return true;
     }
