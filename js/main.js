@@ -114,8 +114,8 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
 });
 
 document.getElementById('btnProximo').onclick = () => {
-    if (anoExibido === 2026 &&mesExibido === 8) {
-        mostrarAlerta("Calendário disponível apenas até Setembro de 2026!");
+    if (anoExibido === 2026 &&mesExibido === 11) {
+        mostrarAlerta("Calendário disponível apenas até Dezembro de 2026!");
         return;
     }
 

@@ -9,6 +9,7 @@ const LISTA_INFO_FERIADOS = [
     { data: "04/06", mes: 5, nome: "Corpus Christi", tipo: "Manutenção" },
     { data: "09/07", mes: 6, nome: "Carta Magna do Estado de S.Paulo", tipo: "Manutenção" },
     { data: "07/09", mes: 8, nome: "Independência do Brasil", tipo: "Geral" },
+    { data: "04/10", mes: 9, nome: "Eleição", tipo: "Geral"},
     { data: "12/10", mes: 9, nome: "N.S.Aparecida", tipo: "Manutenção" },
     { data: "02/11", mes: 10, nome: "Finados", tipo: "Manutenção" },
     { data: "05/11", mes: 10, nome: "Aniversário da Cidade", tipo: "Geral" },
